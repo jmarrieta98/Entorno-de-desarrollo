@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>calculadora &#8212; documentación de Documentacion supercalculadora - 1.0v</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Código fuente para calculadora</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="Calculadora"><a class="viewcode-back" href="../calculadora.html#calculadora.Calculadora">[documentos]</a><span></span><span class="k">class</span> <span class="nc">Calculadora</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Clase calculadora que realiza las operaciones matematicas mas elementales con numeros enteros</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Calculadora.sumar"><a class="viewcode-back" href="../calculadora.html#calculadora.Calculadora.sumar">[documentos]</a>    <span class="k">def</span> <span class="nf">sumar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Suma dos numeros enteros y de vuelve su suma</span>
+
+<span class="sd">        :param a: Primer numero de la suma</span>
+<span class="sd">        :type a: entero</span>
+<span class="sd">        :param b: Segundo numero de la suma</span>
+<span class="sd">        :type b: entero</span>
+<span class="sd">        :return: Suma de los parametros a y b</span>
+<span class="sd">        :rtype: entero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span></div>
+
+<div class="viewcode-block" id="Calculadora.restar"><a class="viewcode-back" href="../calculadora.html#calculadora.Calculadora.restar">[documentos]</a>    <span class="k">def</span> <span class="nf">restar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Resta dos numeros enteros y devuelve su resta</span>
+
+<span class="sd">        :param a: Primer número de la resta</span>
+<span class="sd">        :type a: Entero</span>
+<span class="sd">        :param b: Segundo número dela resta</span>
+<span class="sd">        :type b: Entero</span>
+<span class="sd">        :return: Resta de a menos b </span>
+<span class="sd">        :rtype: entero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span></div>
+
+<div class="viewcode-block" id="Calculadora.multiplicar"><a class="viewcode-back" href="../calculadora.html#calculadora.Calculadora.multiplicar">[documentos]</a>    <span class="k">def</span> <span class="nf">multiplicar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multiplica dos numeros enteros y devuelve su multiplicacion</span>
+
+<span class="sd">        :param a: Primer numero de la multiplicación</span>
+<span class="sd">        :type a: entero</span>
+<span class="sd">        :param b: Segundo numero de la multiplicación</span>
+<span class="sd">        :type b: entero</span>
+<span class="sd">        :return: Multiplicación de a por b</span>
+<span class="sd">        :rtype: entero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span></div>
+
+<div class="viewcode-block" id="Calculadora.dividir"><a class="viewcode-back" href="../calculadora.html#calculadora.Calculadora.dividir">[documentos]</a>    <span class="k">def</span> <span class="nf">dividir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Divide dos números enteros y devuelve su cociente</span>
+
+<span class="sd">        :param a: Dividendo de la división</span>
+<span class="sd">        :type a: Entero</span>
+<span class="sd">        :param b: Divisor de la división</span>
+<span class="sd">        :type b: Entero</span>
+<span class="sd">        :return: Error al dividir entre 0 ó error si el resto no es 0 ó el cociente de la división. </span>
+<span class="sd">        :rtype: Entero ó error.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="ne">ZeroDivisionError</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="ne">ValueError</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">a</span> <span class="o">//</span> <span class="n">b</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Documentacion supercalculadora</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Código de módulo</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Jose Manuel Arrieta Soto.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>calculadora module &#8212; documentación de Documentacion supercalculadora - 1.0v</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-calculadora">
+<span id="calculadora-module"></span><h1>calculadora module<a class="headerlink" href="#module-calculadora" title="Enlazar permanentemente con este título">¶</a></h1>
+<dl class="py class">
+<dt id="calculadora.Calculadora">
+<em class="property">class </em><code class="sig-prename descclassname">calculadora.</code><code class="sig-name descname">Calculadora</code><a class="reference internal" href="_modules/calculadora.html#Calculadora"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#calculadora.Calculadora" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase calculadora que realiza las operaciones matematicas mas elementales con numeros enteros</p>
+<dl class="py method">
+<dt id="calculadora.Calculadora.dividir">
+<code class="sig-name descname">dividir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calculadora.html#Calculadora.dividir"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#calculadora.Calculadora.dividir" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Divide dos números enteros y devuelve su cociente</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>Entero</em>) – Dividendo de la división</p></li>
+<li><p><strong>b</strong> (<em>Entero</em>) – Divisor de la división</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>Error al dividir entre 0 ó error si el resto no es 0 ó el cociente de la división.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>Entero ó error.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculadora.Calculadora.multiplicar">
+<code class="sig-name descname">multiplicar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calculadora.html#Calculadora.multiplicar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#calculadora.Calculadora.multiplicar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Multiplica dos numeros enteros y devuelve su multiplicacion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>entero</em>) – Primer numero de la multiplicación</p></li>
+<li><p><strong>b</strong> (<em>entero</em>) – Segundo numero de la multiplicación</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>Multiplicación de a por b</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>entero</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculadora.Calculadora.restar">
+<code class="sig-name descname">restar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calculadora.html#Calculadora.restar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#calculadora.Calculadora.restar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Resta dos numeros enteros y devuelve su resta</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>Entero</em>) – Primer número de la resta</p></li>
+<li><p><strong>b</strong> (<em>Entero</em>) – Segundo número dela resta</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>Resta de a menos b</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>entero</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculadora.Calculadora.sumar">
+<code class="sig-name descname">sumar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calculadora.html#Calculadora.sumar"><span class="viewcode-link">[fuente]</span></a><a class="headerlink" href="#calculadora.Calculadora.sumar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Suma dos numeros enteros y de vuelve su suma</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>entero</em>) – Primer numero de la suma</p></li>
+<li><p><strong>b</strong> (<em>entero</em>) – Segundo numero de la suma</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>Suma de los parametros a y b</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>entero</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Documentacion supercalculadora</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Jose Manuel Arrieta Soto.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/calculadora.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

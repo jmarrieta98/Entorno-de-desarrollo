@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>supercalculadora &#8212; documentación de Documentacion supercalculadora - 1.0v</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Código fuente para supercalculadora</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">expr_aritmetica</span>
+<span class="kn">import</span> <span class="nn">calculadora</span>
+
+
+<div class="viewcode-block" id="Supercalculadora"><a class="viewcode-back" href="../supercalculadora.html#supercalculadora.Supercalculadora">[documentos]</a><span class="k">class</span> <span class="nc">Supercalculadora</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Clase supercalculdora que realiza operaciones simplificaciones y calculos elementales</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[summary]</span>
+
+<span class="sd">        :param parser: [description]</span>
+<span class="sd">        :type parser: [type]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">calculadora</span><span class="o">.</span><span class="n">Calculadora</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">parser</span>
+
+    <span class="k">def</span> <span class="nf">__operar__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr_descompuesta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Operador de la clase supercalculadora</span>
+<span class="sd">        </span>
+<span class="sd">        :param expr_descompuesta: Tiene como claves operadores y operandos y sus valores son una lista de operadores y opeandos respectivamente</span>
+<span class="sd">        :type expr_descompuesta: Diccionario</span>
+<span class="sd">        :return: La posición de la operación y el calculo de dicha operación</span>
+<span class="sd">        :rtype: Entero y entero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">res_intermedio</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># intercambiar / y * por el error de la división</span>
+        <span class="k">if</span> <span class="s1">&#39;*&#39;</span> <span class="ow">in</span> <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+            <span class="n">res_intermedio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">multiplicar</span><span class="p">(</span>
+                <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">][</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="s1">&#39;/&#39;</span> <span class="ow">in</span> <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]:</span> 
+            <span class="n">i</span> <span class="o">=</span> <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> 
+            <span class="n">res_intermedio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">dividir</span><span class="p">(</span>
+                <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">][</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>  
+        <span class="k">elif</span> <span class="s1">&#39;-&#39;</span> <span class="ow">in</span> <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+            <span class="n">res_intermedio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">restar</span><span class="p">(</span>
+                <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">][</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="s1">&#39;+&#39;</span> <span class="ow">in</span> <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+            <span class="n">res_intermedio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">sumar</span><span class="p">(</span>
+                <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">][</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Es un error, tenemos que decidir que hacer en los test</span>
+            <span class="c1"># siguientes</span>
+            <span class="c1"># Forzamos el error para que no haya problemas luego</span>
+            <span class="k">assert</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">res_intermedio</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__simplificar__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr_descompuesta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Simplificador de la clase supercalculadora</span>
+<span class="sd">        </span>
+<span class="sd">        :param expr_descompuesta: Tiene como claves operadores y operandos y sus valores son una lista de operadores y opeandos respectivamente</span>
+<span class="sd">        :type expr_descompuesta: Diccionario</span>
+<span class="sd">        :return: El valor de la operación realizada</span>
+<span class="sd">        :rtype: Entero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">expr_descompuesta</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="k">return</span> <span class="n">expr_descompuesta</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">res_intermedio</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__operar__</span><span class="p">(</span><span class="n">expr_descompuesta</span><span class="p">)</span>
+            <span class="n">expr_simplificada</span> <span class="o">=</span> <span class="n">expr_descompuesta</span>
+            <span class="n">expr_simplificada</span><span class="p">[</span><span class="s1">&#39;Operadores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">expr_simplificada</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">expr_simplificada</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">expr_simplificada</span><span class="p">[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">res_intermedio</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__simplificar__</span><span class="p">(</span><span class="n">expr_simplificada</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Supercalculadora.calcular"><a class="viewcode-back" href="../supercalculadora.html#supercalculadora.Supercalculadora.calcular">[documentos]</a>    <span class="k">def</span> <span class="nf">calcular</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expresion</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Metodo calcular de la clase supercalculadora</span>
+<span class="sd">        </span>
+<span class="sd">        :param expresion: Tiene como claves operadores y operandos y sus valores son una lista de operadores y opeandos respectivamente</span>
+<span class="sd">        :type expresion: Diccionario</span>
+<span class="sd">        :return: El valor de la operación realizada</span>
+<span class="sd">        :rtype: Entero</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__simplificar__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">expresion</span><span class="p">))[</span><span class="s1">&#39;Operandos&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Documentacion supercalculadora</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Código de módulo</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Jose Manuel Arrieta Soto.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
